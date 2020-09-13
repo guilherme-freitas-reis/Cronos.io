@@ -28,7 +28,7 @@ export default function Calendario() {
 
   return (
     <Container>
-      <NovaTarefa />
+      {/* <NovaTarefa /> */}
       <Title>
         Olá {name}😊! Bem vind@ ao <span>Cronos.io</span>
       </Title>
@@ -38,7 +38,7 @@ export default function Calendario() {
       <CalendarioContainer>
         <ActionsContainer>
           <h1>Calendário</h1>
-          <Button variant="primary" onClick={modalNovaTarefa}>
+          <Button variant="primary" onClick={() => {}}>
             Adicionar nova tarefa
           </Button>
         </ActionsContainer>
