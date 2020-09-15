@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.section`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  height: max-content;
+  height: unset;
+  min-height: 100%;
   background: #fff;
   border-radius: 7px;
   padding: 2rem;
-  margin: 2rem;
+  margin: 0 2rem;
 
   @media (max-width: 1000px) {
     padding: 50px 20px 30px;
@@ -17,7 +18,11 @@ export const Container = styled.section`
   }
 `;
 
-export const CalendarioContainer = styled.div``;
+export const CalendarioContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
 
 export const Title = styled.h1`
   font-size: 2.2rem;
@@ -46,13 +51,13 @@ export const Description = styled.h2`
 
 export const ActionsContainer = styled.div`
   display: flex;
-  align-items: center;
   margin: 0 0 2rem;
   justify-content: space-between;
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
+    margin: 0;
   }
 
   @media (max-width: 1000px) {

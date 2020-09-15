@@ -1,5 +1,4 @@
-import React, { useState, useEffect, createRef } from "react";
-import { Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "moment/locale/pt-br";
@@ -13,7 +12,6 @@ import {
 } from "./styles";
 
 import NovaTarefa from "../NovaTarefa";
-import { resolveHref } from "next/dist/next-server/lib/router/router";
 
 export default function Calendario() {
   const [name, setName] = useState("");
@@ -28,7 +26,6 @@ export default function Calendario() {
 
   return (
     <Container>
-      {/* <NovaTarefa /> */}
       <Title>
         Olá {name}😊! Bem vind@ ao <span>Cronos.io</span>
       </Title>
@@ -38,9 +35,7 @@ export default function Calendario() {
       <CalendarioContainer>
         <ActionsContainer>
           <h1>Calendário</h1>
-          <Button variant="primary" onClick={() => {}}>
-            Adicionar nova tarefa
-          </Button>
+          <NovaTarefa />
         </ActionsContainer>
         <Calendar
           culture="pt-BR"
@@ -76,7 +71,6 @@ export default function Calendario() {
             agenda: "Agenda",
             noEventsInRange: "Não existe eventos nesse intervalo.",
           }}
-          style={{ height: 500 }}
         />
       </CalendarioContainer>
     </Container>

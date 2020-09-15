@@ -31,6 +31,7 @@ const Main = styled.section`
   flex: 1;
   width: 100%;
   background: #fff;
+  height: 100%;
   min-height: 100%;
 
   @media (max-width: 1000px) {

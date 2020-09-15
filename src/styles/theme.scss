@@ -1,7 +1,7 @@
 $theme-colors: (
   "primary": #f3751e,
-  "info": tomato,
-  "danger": teal,
+  "info": green,
+  "danger": tomato,
 );
 
 .btn {
@@ -11,12 +11,12 @@ $theme-colors: (
   font-size: 1.2rem;
   padding: 0 20px !important;
   min-width: 200px;
-  min-height: 50px;
+  min-height: 45px;
   font-family: Poppins, sans-serif !important;
 }
 
 input {
-  min-height: 50px;
+  min-height: 45px;
 }
 
 /* import bootstrap to set changes */
