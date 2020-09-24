@@ -46,11 +46,16 @@ export default function Calendario() {
       <CalendarioContainer>
         <ActionsContainer>
           <h1>Calendário</h1>
-          <NovaTarefa />
+          <NovaTarefa reloadCalendar={getAllTasks.bind()} />
         </ActionsContainer>
         <Calendar
           components={{
-            event: (props) => <DetalhesTarefa data={props.event} />,
+            event: (props) => (
+              <DetalhesTarefa
+                task={props.event}
+                reloadCalendar={getAllTasks.bind()}
+              />
+            ),
           }}
           culture="pt-BR"
           localizer={localizer}

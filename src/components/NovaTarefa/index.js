@@ -1,6 +1,12 @@
 import React, { useState, useRef } from "react";
 import { Button, Col, Modal, Form } from "react-bootstrap";
-export default function NovaTarefa() {
+import { useToasts } from "react-toast-notifications";
+
+import api from "../../services/api";
+
+export default function NovaTarefa({ reloadCalendar }) {
+  const { addToast } = useToasts();
+
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
 
@@ -13,12 +19,37 @@ export default function NovaTarefa() {
       event.stopPropagation();
     }
 
-    saveTask();
+    saveTask(form);
 
     setValidated(true);
   };
 
-  const saveTask = () => {};
+  async function saveTask(form) {
+    try {
+      const { data } = await api.post("/task/create", {
+        title: form["title"].value,
+        description: form["description"].value,
+        start: form["start"].value,
+        end: form["end"].value,
+      });
+
+      if (data.success) {
+        handleClose();
+        reloadCalendar();
+        addToast(data.message, {
+          appearance: "success",
+        });
+      } else {
+        addToast(data.message, {
+          appearance: "warning",
+        });
+      }
+    } catch (err) {
+      addToast(`Erro: ${err}`, {
+        appearance: "warning",
+      });
+    }
+  }
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -64,7 +95,7 @@ export default function NovaTarefa() {
                 <Form.Label>Data e hora de início</Form.Label>
                 <Form.Control
                   type="datetime-local"
-                  name="dateStart"
+                  name="start"
                   placeholder="Digite a data e hora de início"
                   required
                 />
@@ -73,7 +104,7 @@ export default function NovaTarefa() {
                 <Form.Label>Data e hora final</Form.Label>
                 <Form.Control
                   type="datetime-local"
-                  name="dateEnd"
+                  name="end"
                   placeholder="Digite a data e hora final"
                   required
                 />

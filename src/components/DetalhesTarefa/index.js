@@ -1,26 +1,43 @@
-import React, { useState, useRef } from "react";
-import { Button, Col, Modal, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 
-export default function DetalhesTarefa({ data }) {
+import api from "../../services/api";
+
+export default function DetalhesTarefa({ task, reloadCalendar }) {
   const [show, setShow] = useState(false);
-  const [validated, setValidated] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  async function deleteTask() {
+    const { data } = await api.delete(`/task/delete/${task._id}`);
+
+    if (data.success) {
+      handleClose();
+      reloadCalendar();
+    }
+  }
+
   return (
     <>
-      <div onClick={handleShow}>{data.title}</div>
+      <div onClick={handleShow}>{task.title}</div>
 
       <Modal show={show} size="lg" onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Detalhes da Tarefa</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Título: {data.title}</p>
-          <p>Descrição: {data.description || "Sem descrição"}</p>
+          <p>Título: {task.title}</p>
+          <p>Descrição: {task.description || "Sem descrição"}</p>
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Fechar
+          </Button>
+          <Button variant="primary" type="submit" onClick={deleteTask}>
+            Deletar
+          </Button>
+        </Modal.Footer>
       </Modal>
     </>
   );
