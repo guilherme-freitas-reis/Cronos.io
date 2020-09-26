@@ -25,10 +25,42 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
           />
-          <meta name="description" content="Description" />
-          <meta name="keywords" content="Keywords" />
-          <title>Cronos.io</title>
+          <title>Olá 😊! Bem vind@ ao Cronos.io</title>
+          <meta name="title" content="Olá 😊! Bem vind@ ao Cronos.io" />
+          <meta
+            name="description"
+            content="É bom saber que você tem interesse em receber alertas sobre as tarefas da faculdade, e o Cronos.io vai te ajudar!"
+          />
 
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://cronos-io.vercel.app/" />
+          <meta property="og:title" content="Olá 😊! Bem vind@ ao Cronos.io" />
+          <meta
+            property="og:description"
+            content="É bom saber que você tem interesse em receber alertas sobre as tarefas da faculdade, e o Cronos.io vai te ajudar!"
+          />
+          <meta
+            property="og:image"
+            content="https://cronos-io.vercel.app/og-image.png"
+          />
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content="https://cronos-io.vercel.app/"
+          />
+          <meta
+            property="twitter:title"
+            content="Olá 😊! Bem vind@ ao Cronos.io"
+          />
+          <meta
+            property="twitter:description"
+            content="É bom saber que você tem interesse em receber alertas sobre as tarefas da faculdade, e o Cronos.io vai te ajudar!"
+          />
+          <meta
+            property="twitter:image"
+            content="https://cronos-io.vercel.app/og-image.png"
+          />
           <link rel="manifest" href="/manifest.json" />
           <link
             href="/favicon-16x16.png"
