@@ -39,5 +39,5 @@ export const DescriptionCTA = styled.p`
 
 export const PicPayContainer = styled.div`
   margin: 0 0 1.5rem;
-  padding: 2rem;
+  padding: 0 2rem;
 `;

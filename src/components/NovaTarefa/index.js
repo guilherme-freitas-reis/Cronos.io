@@ -17,9 +17,9 @@ export default function NovaTarefa({ reloadCalendar }) {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
+    } else {
+      saveTask(form);
     }
-
-    saveTask(form);
 
     setValidated(true);
   };
@@ -91,7 +91,7 @@ export default function NovaTarefa({ reloadCalendar }) {
               />
             </Form.Group>
             <Form.Row>
-              <Col>
+              <Col sm={12} md={6}>
                 <Form.Label>Data e hora de início</Form.Label>
                 <Form.Control
                   type="datetime-local"
@@ -100,7 +100,7 @@ export default function NovaTarefa({ reloadCalendar }) {
                   required
                 />
               </Col>
-              <Col>
+              <Col sm={12} md={6}>
                 <Form.Label>Data e hora final</Form.Label>
                 <Form.Control
                   type="datetime-local"

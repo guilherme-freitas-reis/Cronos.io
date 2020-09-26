@@ -30,7 +30,16 @@ export default function Calendario() {
 
   async function getAllTasks() {
     const { data } = await api.get("/task/index");
-    setEvents(data.object);
+
+    if (data.object.length !== 0) {
+      var newData = data.object.map((value) => {
+        value.start = moment(value.start).toDate();
+        value.end = moment(value.end).toDate();
+        return value;
+      });
+
+      setEvents(newData);
+    }
   }
 
   const localizer = momentLocalizer(moment);
