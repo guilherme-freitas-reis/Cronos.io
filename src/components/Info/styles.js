@@ -10,7 +10,6 @@ export const Container = styled.section`
   background: #121212;
   color: #fff;
   margin: 0 0 0 20px;
-  padding: 2rem 2rem 0;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 
   @media (max-width: 1000px) {
@@ -18,8 +17,13 @@ export const Container = styled.section`
     max-width: unset;
     min-width: unset;
     margin: 0;
-    padding: 30px 20px 50px;
   }
+`;
+
+export const AlertContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 `;
 
 export const TitleCTA = styled.h2`
@@ -31,4 +35,9 @@ export const TitleCTA = styled.h2`
 export const DescriptionCTA = styled.p`
   font-size: 1rem;
   margin: 0 0 3rem;
+`;
+
+export const PicPayContainer = styled.div`
+  margin: 0 0 1.5rem;
+  padding: 2rem;
 `;

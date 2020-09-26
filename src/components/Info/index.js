@@ -3,7 +3,15 @@ import { Button, Form } from "react-bootstrap";
 import { useToasts } from "react-toast-notifications";
 import api from "../../services/api";
 
-import { Container, TitleCTA, DescriptionCTA } from "./styles";
+import Donate from "../../components/Donate";
+
+import {
+  Container,
+  AlertContainer,
+  PicPayContainer,
+  TitleCTA,
+  DescriptionCTA,
+} from "./styles";
 
 function Info() {
   const { addToast } = useToasts();
@@ -50,7 +58,9 @@ function Info() {
 
   return (
     <Container>
-      <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+      <AlertContainer
+        style={{ display: "flex", flexDirection: "column", flex: 1 }}
+      >
         <TitleCTA>Alertas por e-mail</TitleCTA>
         <DescriptionCTA>
           Você também pode cadastrar seu e-mail para receber os alertas por lá:
@@ -84,8 +94,11 @@ function Info() {
             Receber alertas por e-mail
           </Button>
         </Form>
-      </div>
-      <div style={{ height: 30, textAlign: "center" }}>
+      </AlertContainer>
+      <PicPayContainer>
+        <Donate />
+      </PicPayContainer>
+      <div className="copy" style={{ height: 30, textAlign: "center" }}>
         <p style={{ margin: 0, fontSize: 13 }}>
           Feito com ❤️ por{" "}
           <a href="https://guilhermereis.dev.br" target="_blank">

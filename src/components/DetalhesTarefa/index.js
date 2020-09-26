@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import Linkfy from "react-linkify";
 
 import api from "../../services/api";
 
@@ -28,7 +29,9 @@ export default function DetalhesTarefa({ task, reloadCalendar }) {
         </Modal.Header>
         <Modal.Body>
           <p>Título: {task.title}</p>
-          <p>Descrição: {task.description || "Sem descrição"}</p>
+          <p>
+            Descrição: <Linkfy> {task.description || "Sem descrição"} </Linkfy>
+          </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
