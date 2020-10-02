@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import { useToasts } from "react-toast-notifications";
 import Linkfy from "react-linkify";
 
 import api from "../../services/api";
 
 export default function DetalhesTarefa({ task, reloadCalendar }) {
+  const { addToast } = useToasts();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -14,8 +17,15 @@ export default function DetalhesTarefa({ task, reloadCalendar }) {
     const { data } = await api.delete(`/task/delete/${task._id}`);
 
     if (data.success) {
+      addToast(data.message, {
+        appearance: "success",
+      });
       handleClose();
       reloadCalendar();
+    } else {
+      addToast(data.message, {
+        appearance: "warning",
+      });
     }
   }
 
